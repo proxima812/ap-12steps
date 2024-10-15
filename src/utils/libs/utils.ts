@@ -71,7 +71,7 @@ export function slugifyReverse(input) {
 		zh: "ж",
 		z: "з",
 		i: "и",
-		y: "й",
+		// y: "й",
 		k: "к",
 		l: "л",
 		m: "м",
@@ -89,7 +89,7 @@ export function slugifyReverse(input) {
 		sh: "ш",
 		shch: "щ",
 		y: "ы",
-		e: "э",
+		// e: "э",
 		yu: "ю",
 		ya: "я",
 		"": "", // для символа, который мы не можем преобразовать
