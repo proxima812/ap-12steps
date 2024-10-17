@@ -1,13 +1,14 @@
 export const config = {
 	site: {
 		base: {
-			url: "https://site.com",
+			url: "https://ap-12steps.pages.dev",
 		},
 		OG: {
-			site_name: "Компания",
-			author: "Человек",
-			title: "Страница",
-			description: "Описание",
+			site_name: "АП - анонимные прокрастинаторы",
+			author: "samgold",
+			title: "АП - анонимные прокрастинаторы",
+			description:
+				"У тебя проблема с прокрастинацией, ленью и СДВГ - возможно, мы поможем! Рад всем из всех стран мира.",
 			locale: "ru",
 			defaultImage: "default-ogImage.png",
 		},
@@ -19,9 +20,9 @@ export const config = {
 		// ...
 	},
 	manifest: {
-		short_name: "short-name",
-		theme_color: "#fff",
-		background_color: "#fff",
+		short_name: "АП - сайт",
+		theme_color: "#888",
+		background_color: "#888",
 		// fullscreen / standalone / minimal-ui / browser
 		display: "minimal-ui",
 	},

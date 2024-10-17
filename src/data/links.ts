@@ -5,15 +5,19 @@ export const links = [
 	},
 	{
 		label: "Материалы",
-		href: "/archive",
+		href: "#",
 	},
 	{
 		label: "Группы",
 		href: "#groups",
 	},
 	{
+		label: "Контакты",
+		href: "#contacts",
+	},
+	{
 		label: "Создать группу",
-		href: "#",
+		href: "#create-group",
 		mdi: "mdi:creation-outline",
 	},
 ]

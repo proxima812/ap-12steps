@@ -1,6 +1,8 @@
 ---
 import CommunitiesList from "@/components/CommunitiesList.astro"
 import Container from "@/components/Container.astro"
+import CreateGroup from "@/components/createGroup.astro"
+import Freinds from "@/components/Freinds.astro"
 import GroupsList from "@/components/GroupsList.astro"
 import Nav from "@/components/Nav.astro"
 import Canvas from "@/components/ui/Canvas.astro"
@@ -9,7 +11,10 @@ import Title from "@/components/ui/Title.astro"
 import JustLayout from "@/layouts/JustLayout.astro"
 ---
 
-<JustLayout>
+<JustLayout
+	title="Анонимные Прокрастинаторы - официальный сайт СНГ"
+	description="У тебя проблема с прокрастинацией, ленью и СДВГ - возможно, мы поможем! Рад всем из всех стран мира."
+>
 	<Nav />
 	<div
 		class="relative w-full h-[calc(40%+72px)] md:h-[calc(55%+72px)] overflow-hidden flex flex-col justify-center rounded-b-[60px]"
@@ -40,6 +45,22 @@ import JustLayout from "@/layouts/JustLayout.astro"
 					>
 				</H2PresentSection>
 				<GroupsList />
+			</section>
+			<section id="create-group">
+				<H2PresentSection icon="mdi:telegram">
+					<Fragment slot="name">Создай свою группу АП!</Fragment>
+					<Fragment slot="p"
+						>Любые 2-3 Прокрастинатора могут создать свою группу в рамках 3-4 традиции.</Fragment
+					>
+				</H2PresentSection>
+				<CreateGroup />
+			</section>
+			<section id="contacts">
+				<H2PresentSection icon="mdi:account-box">
+					<Fragment slot="name">Контакты для связи</Fragment>
+					<Fragment slot="p">Узнать информацию о сообществе АП и его друзьях</Fragment>
+				</H2PresentSection>
+				<Freinds />
 			</section>
 		</main>
 	</Container>

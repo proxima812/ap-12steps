@@ -6,6 +6,6 @@ import { getCollection } from "astro:content"
 const groups = await getCollection("groups")
 ---
 
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-3">
+<div class="grid grid-cols-1 md:grid-cols-2 items-start lg:grid-cols-3 gap-3">
 	{groups && groups.map(post => <GroupCard data={post.data} slug={post.slug} />)}
 </div>

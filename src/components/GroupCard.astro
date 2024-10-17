@@ -8,6 +8,7 @@ const { data, slug } = Astro.props
 	class="hover:bg-zinc-800/60 ease-linear transition-colors p-6 rounded-xl bg-zinc-900 ring-1 ring-zinc-800 relative flex flex-col gap-3"
 >
 	<span class="absolute top-4 right-4"><Icon name="mdi:account-group" /></span>
+  <span class="text-sm text-purple-500 font-bold">{data.day}</span>
 	<h3 class="font-bold">{data.title}</h3>
 
 	<div>

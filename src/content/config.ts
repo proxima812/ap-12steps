@@ -19,6 +19,7 @@ const groups = defineCollection({
 	schema: () => {
 		z.object({
 			title: z.string(),
+      day: z.string(),
 			description: z.string().optional(),
 			time: z.string(),
 			format: z.string(),
