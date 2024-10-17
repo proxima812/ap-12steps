@@ -1,7 +1,6 @@
 import sitemap from "@astrojs/sitemap"
 import tailwind from "@astrojs/tailwind"
 import compress from "astro-compress"
-
 import { defineConfig } from "astro/config"
 import { VitePWA } from "vite-plugin-pwa"
 import { manifest } from "./src/utils/libs/manifest"

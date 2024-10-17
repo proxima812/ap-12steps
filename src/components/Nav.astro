@@ -2,7 +2,7 @@
 import { links } from "@/data/links"
 import Container from "./Container.astro"
 import Logo from "./Logo.astro"
-import { Icon } from 'astro-icon/components'
+import { Icon } from "astro-icon/components"
 ---
 
 <header
@@ -16,11 +16,31 @@ import { Icon } from 'astro-icon/components'
 					links &&
 						links.map(link => (
 							<a class="flex gap-1 items-center" href={link.href}>
-                {link.mdi && <Icon name={link.mdi} />}
+								{link.mdi && <Icon name={link.mdi} />}
 								{link.label}
 							</a>
 						))
 				}
+			</nav>
+			<button
+				id="openMenu"
+				class="bg-black text-white px-4 py-2 rounded-lg block md:hidden">меню</button
+			>
+			<nav
+				id="menu"
+				class="absolute hidden border-t p-6 top-[80px] left-0 w-full h-screen bg-zinc-900/50 backdrop-blur-md"
+			>
+				<div class="flex w-full mt-6 items-center font-medium text-xl flex-col gap-6">
+					{
+						links &&
+							links.map(link => (
+								<a class="flex gap-1 items-center" href={link.href}>
+									{link.mdi && <Icon name={link.mdi} />}
+									{link.label}
+								</a>
+							))
+					}
+				</div>
 			</nav>
 		</div>
 	</Container>
@@ -29,14 +49,24 @@ import { Icon } from 'astro-icon/components'
 <script>
 	document.addEventListener("DOMContentLoaded", function () {
 		const header = document.querySelector("header")
+		const openMenu = document.querySelector("#openMenu")
+		const menu = document.querySelector("#menu")
+
+		const toggleMenu = () => {
+			menu.classList.toggle("hidden")
+			menu.classList.toggle("flex")
+		}
+		openMenu.addEventListener("click", toggleMenu)
+
+		document.querySelector("#openMenu").addEventListener("click", toggleMenu)
 
 		const handleScroll = () => {
 			if (window.scrollY > 30) {
-				header.classList.add("bg-zinc-900", "py-4")
-				header.classList.remove("bg-transparent", "py-5")
+				header.classList.add("bg-zinc-900")
+				header.classList.remove("bg-transparent")
 			} else {
-				header.classList.add("bg-transparent", "py-5")
-				header.classList.remove("bg-zinc-900", "py-4")
+				header.classList.add("bg-transparent")
+				header.classList.remove("bg-zinc-900")
 			}
 		}
 
