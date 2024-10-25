@@ -1,12 +1,12 @@
 export const links = [
-	{
-		label: "Главная",
-		href: "/",
-	},
-	{
-		label: "Материалы",
-		href: "#",
-	},
+	// {
+	// 	label: "Главная",
+	// 	href: "/",
+	// },
+	// {
+	// 	label: "Материалы",
+	// 	href: "#",
+	// },
 	{
 		label: "Группы",
 		href: "#groups",
