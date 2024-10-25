@@ -3,6 +3,10 @@ import { links } from "@/data/links"
 import Container from "./Container.astro"
 import Logo from "./Logo.astro"
 import { Icon } from "astro-icon/components"
+
+import { getLangFromUrl } from "../i18n/utils"
+
+const lang = getLangFromUrl(Astro.url)
 ---
 
 <header
@@ -17,7 +21,7 @@ import { Icon } from "astro-icon/components"
 						links.map(link => (
 							<a class="flex gap-1 items-center" href={link.href}>
 								{link.mdi && <Icon name={link.mdi} />}
-								{link.label}
+								{lang === "ru" ? link.label : link.labelEn}
 							</a>
 						))
 				}
@@ -36,7 +40,7 @@ import { Icon } from "astro-icon/components"
 							links.map(link => (
 								<a class="flex gap-1 items-center" href={link.href}>
 									{link.mdi && <Icon name={link.mdi} />}
-									{link.label}
+									{lang === "ru" ? link.label : link.labelEn}
 								</a>
 							))
 					}

@@ -1,13 +1,16 @@
 ---
 import SEOHead from "@/components/SEOHead.astro"
+import { getLangFromUrl } from "@/i18n/utils"
 
 import "@/styles/tailwind.css"
 
 const { datePublished, dateModified, noIndex, title, description, type, ogImage } =
 	Astro.props
+
+const lang = getLangFromUrl(Astro.url)
 ---
 
-<html lang="ru" class="scroll-smooth h-full">
+<html lang={lang} class="scroll-smooth h-full">
 	<head>
 		<SEOHead
 			noIndex={noIndex}

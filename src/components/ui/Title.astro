@@ -1,11 +1,14 @@
 ---
+import { en } from "@/data/en"
+import { getLangFromUrl } from "@/i18n/utils"
 
+const lang = getLangFromUrl(Astro.url)
 ---
 
 <h1
 	aria-label="Анонимные Прокрастинаторы"
 	class="select-none mix-blend-overlay tracking-tighter text-4xl lg:text-6xl xl:text-8xl text-center font-black"
 >
-	АНОНИМНЫЕ ПРОКРАСТИНАТОРЫ
+	{`${lang === "ru" ? "АНОНИМНЫЕ ПРОКРАСТИНАТОРЫ" : en.head.title}`}
 	<span class="sr-only">Анонимные Прокрастинаторы</span>
 </h1>
