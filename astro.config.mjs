@@ -12,7 +12,10 @@ import cloudflare from "@astrojs/cloudflare";
 
 export default defineConfig({
   site: `${config.site.base.url}`,
-
+  redirects: {
+    '/ru': '/',
+    '/en' : '/'
+  },
   prefetch: {
       prefetchAll: true,
       defaultStrategy: "viewport",
