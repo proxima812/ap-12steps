@@ -14,8 +14,8 @@ export const config = {
 		},
 	},
 	verifications: {
-		yandex: "",
-		google: "",
+		yandex: "713673c99526fae1",
+		google: "dr7QQtGf_qTU7V6RfX_fflCjghK9CWYGvzTgLEVEn",
 		bing: "",
 		// ...
 	},
