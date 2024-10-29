@@ -15,9 +15,9 @@ export const config = {
 	},
 	verifications: {
 		yandex: "713673c99526fae1",
-		google: "dr7QQtGf_qTU7V6RfX_fflCjghK9CWYGvzTgLEVEn",
+		google: "dr7QQtGf_qTU7V6RfX_fflCjghK9CWYGvzTgLEVEn-c",
 		bing: "",
-		// ...
+//...
 	},
 	manifest: {
 		short_name: "АП - сайт",
