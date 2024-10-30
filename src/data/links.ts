@@ -2,12 +2,12 @@ export const links = [
 	
 	{
 		label: "Группы",
-		href: "#groups",
+		href: "/#groups",
 		mdi: "mdi:home-group-plus",
 	},
 	{
 		label: "Контакты",
-		href: "#contacts",
+		href: "/#contacts",
 		mdi: "mdi:contactless-payment",
 	},
 	{
@@ -17,7 +17,7 @@ export const links = [
 	},
 	{
 		label: "Создать группу",
-		href: "#create-group",
+		href: "/#create-group",
 		mdi: "mdi:creation-outline",
 	},
 ]
