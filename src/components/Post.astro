@@ -1,0 +1,16 @@
+---
+const { data, slug } = Astro.props
+---
+
+<a href={`/posts/${slug}`}>
+	<article class="p-6 rounded-xl bg-zinc-900 ring-1 ring-zinc-800">
+		<div class="flex flex-col gap-3">
+			<h2
+				class=" font-black text-xl tracking-tighter"
+			>
+				{data.title}
+			</h2>
+			<p class="text-zinc-400">{data.description}</p>
+		</div>
+	</article>
+</a>

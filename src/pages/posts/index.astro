@@ -1,18 +1,28 @@
 ---
-import MainLayout from "@/layouts/MainLayout.astro"
+import Container from "@/components/Container.astro"
+import Post from "@/components/Post.astro"
+import JustLayout from "@/layouts/JustLayout.astro"
 import { getAllPosts } from "@/utils/getPosts"
 
 const posts = await getAllPosts("posts")
+
+const postsLen = posts.length
 ---
 
-<MainLayout title="" description="">
-	{
-		posts &&
-			posts.map(post => (
-				<a href={`/posts/${post.slug}`}>
-					<h2>{post.data.title}</h2>
-					<p>{post.data.description}</p>
-				</a>
-			))
-	}
-</MainLayout>
+<JustLayout
+	title={`АПРО | постов(${postsLen}), материалы, объявления и истории`}
+	description="материалы, объявления и истории Анонимных Прокрастинаторов"
+>
+	<section class="my-[120px]">
+		<Container>
+			<h3
+				class="before:h-full pl-3 before:w-[4px] before:rounded-lg relative before:absolute before:left-0 before:bg-purple-500 mb-6 text-xl"
+			>
+				Посты и статьи нашего сообщества
+			</h3>
+			<div class="grid grid-cols-2 gap-3">
+				{posts && posts.map(post => <Post data={post.data} slug={post.slug} />)}
+			</div>
+		</Container>
+	</section>
+</JustLayout>

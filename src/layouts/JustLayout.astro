@@ -1,17 +1,15 @@
 ---
-import Analytics from '@/components/Analytics.astro'
+import Analytics from "@/components/Analytics.astro"
+import Nav from '@/components/Nav.astro'
 import SEOHead from "@/components/SEOHead.astro"
-import { getLangFromUrl } from "@/i18n/utils"
 
 import "@/styles/tailwind.css"
 
 const { datePublished, dateModified, noIndex, title, description, type, ogImage } =
 	Astro.props
-
-const lang = getLangFromUrl(Astro.url)
 ---
 
-<html lang={lang} class="scroll-smooth h-full">
+<html lang="ru" class="scroll-smooth h-full">
 	<head>
 		<SEOHead
 			noIndex={noIndex}
@@ -22,11 +20,12 @@ const lang = getLangFromUrl(Astro.url)
 			datePublished={datePublished}
 			dateModified={dateModified}
 		/>
-    <Analytics />
+		<Analytics />
 	</head>
 	<body
 		class="relative scroll-m-4 w-full min-h-screen h-full bg-zinc-950 text-white font-sans"
 	>
+		<Nav />
 		<slot />
 	</body>
 </html>

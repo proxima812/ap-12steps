@@ -3,10 +3,6 @@ import { links } from "@/data/links"
 import Container from "./Container.astro"
 import Logo from "./Logo.astro"
 import { Icon } from "astro-icon/components"
-
-import { getLangFromUrl } from "../i18n/utils"
-
-const lang = getLangFromUrl(Astro.url)
 ---
 
 <header
@@ -14,21 +10,21 @@ const lang = getLangFromUrl(Astro.url)
 >
 	<Container>
 		<div class="flex justify-between items-center">
-			<Logo />
+			<a href="/" aria-label="На главную"><Logo /></a>
 			<nav id="nav" class="hidden md:flex space-x-4 text-white">
 				{
 					links &&
 						links.map(link => (
 							<a class="flex gap-1 items-center" href={link.href}>
 								{link.mdi && <Icon name={link.mdi} />}
-								{lang === "ru" ? link.label : link.labelEn}
+								{link.label}
 							</a>
 						))
 				}
 			</nav>
 			<button
 				id="openMenu"
-				class="bg-black text-white px-4 py-2 rounded-lg block md:hidden">меню</button
+				class="bg-black border border-zinc-700 text-white px-4 py-2 rounded-lg block md:hidden">меню</button
 			>
 			<nav
 				id="menu"
@@ -40,7 +36,7 @@ const lang = getLangFromUrl(Astro.url)
 							links.map(link => (
 								<a class="flex gap-1 items-center" href={link.href}>
 									{link.mdi && <Icon name={link.mdi} />}
-									{lang === "ru" ? link.label : link.labelEn}
+									{link.label}
 								</a>
 							))
 					}

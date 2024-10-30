@@ -1,5 +1,4 @@
 import { getCollection } from "astro:content"
-import { slugify } from './libs/utils'
 
 // Вывод постов по новым датам и по статусу draft
 

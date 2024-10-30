@@ -1,17 +1,13 @@
 ---
-import MainLayout from "@/layouts/MainLayout.astro"
+import Container from "@/components/Container.astro"
+import JustLayout from "@/layouts/JustLayout.astro"
 import { getAllPosts } from "@/utils/getPosts"
 
 export async function getStaticPaths() {
 	const posts = await getAllPosts("posts")
-	const postCount = posts.length
-	return posts.map((post, index) => ({
+	return posts.map(post => ({
 		params: { slug: post.slug },
-		props: {
-			post,
-			prevPost: index + 1 !== postCount ? posts[index + 1] : null,
-			nextPost: index !== 0 ? posts[index - 1] : null,
-		},
+		props: { post },
 	}))
 }
 
@@ -19,8 +15,18 @@ const { post } = Astro.props
 const { Content } = await post.render()
 ---
 
-<MainLayout>
-  <h1 class="text-6xl font-black trac">{post.data.title}</h1>
-  <p>{post.data.description}</p>
-	<Content />
-</MainLayout>
+<JustLayout {...post.data}>
+	<section class="py-[120px]">
+		<Container>
+			<div class="flex flex-col gap-3">
+				<h1 class="lg:text-6xl text-4xl font-black tracking-tighter">
+					{post.data.title}
+				</h1>
+				<p class="text-zinc-400">{post.data.description}</p>
+			</div>
+			<main class="mt-5 prose-zinc prose max-w-none prose-lg prose-invert">
+				<Content />
+			</main>
+		</Container>
+	</section>
+</JustLayout>
