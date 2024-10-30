@@ -20,7 +20,7 @@ const postsLen = posts.length
 			>
 				Посты и статьи нашего сообщества
 			</h3>
-			<div class="grid grid-cols-2 gap-3">
+			<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
 				{posts && posts.map(post => <Post data={post.data} slug={post.slug} />)}
 			</div>
 		</Container>

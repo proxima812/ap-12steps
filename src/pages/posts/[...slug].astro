@@ -18,13 +18,16 @@ const { Content } = await post.render()
 <JustLayout {...post.data}>
 	<section class="py-[120px]">
 		<Container>
-			<div class="flex flex-col gap-3">
-				<h1 class="lg:text-6xl text-4xl font-black tracking-tighter">
+			<a href="/posts" class="bg-zinc-800 rounded-lg px-3 py-1.5">Назад</a>
+			<div class="py-6 flex flex-col gap-3">
+				<h1
+					class="before:h-full pl-5 before:w-[4px] before:rounded-lg relative before:absolute before:left-0 before:bg-sky-500 lg:text-6xl text-4xl font-black tracking-tighter"
+				>
 					{post.data.title}
 				</h1>
 				<p class="text-zinc-400">{post.data.description}</p>
 			</div>
-			<main class="mt-5 prose-zinc prose max-w-none prose-lg prose-invert">
+			<main class="prose-zinc prose max-w-none prose-lg prose-invert">
 				<Content />
 			</main>
 		</Container>
