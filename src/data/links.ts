@@ -1,5 +1,4 @@
 export const links = [
-	
 	{
 		label: "Группы",
 		href: "/#groups",
@@ -19,5 +18,10 @@ export const links = [
 		label: "Создать группу",
 		href: "/#create-group",
 		mdi: "mdi:creation-outline",
+	},
+	{
+		label: "Вопросы&Ответы",
+		href: "/faq",
+		mdi: "mdi:format-quote-close",
 	},
 ]
