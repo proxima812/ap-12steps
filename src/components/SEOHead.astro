@@ -86,13 +86,8 @@ const finalOGImage = socialImageURL || config.site.OG.defaultImage
 <meta property="twitter:description" content={finalDescription} />
 <meta property="twitter:image" content={finalOGImage} />
 
-{
-	indexRobots ? (
-		<meta name="robots" content="index, follow" />
-	) : (
-		<meta name="robots" content="noindex, nofollow" />
-	)
-}
+<meta name="robots" content="index, follow" />
+
 <!-- Это robots.txt но для людей humnas.txt  -->
 <link type="text/plain" rel="author" href={`${Astro.site}humans.txt`} />
 
