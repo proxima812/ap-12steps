@@ -10,6 +10,11 @@ export const links = [
 		mdi: "mdi:contactless-payment",
 	},
 	{
+		label: "Ежедневник",
+		href: "/daily",
+		mdi: "mdi:account-box-edit-outline",
+	},
+	{
 		label: "Посты",
 		href: "/posts",
 		mdi: "mdi:book-education",
