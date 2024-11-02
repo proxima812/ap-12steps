@@ -5,14 +5,13 @@ import SEOHead from "@/components/SEOHead.astro"
 
 import "@/styles/tailwind.css"
 
-const { datePublished, dateModified, noIndex, title, description, type, ogImage } =
+const { datePublished, dateModified, title, description, type, ogImage } =
 	Astro.props
 ---
 
 <html lang="ru" class="scroll-smooth h-full">
 	<head>
 		<SEOHead
-			noIndex={noIndex}
 			title={title}
 			description={description}
 			type={type}

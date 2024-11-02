@@ -15,6 +15,15 @@ const posts = defineCollection({
 	},
 })
 
+const daily = defineCollection({
+  schema: ({ image }) => {
+    z.object({
+      title: z.string(),
+      date: z.union([z.string().datetime(), z.date()]),
+    })
+  },
+})
+
 const groups = defineCollection({
 	schema: () => {
 		z.object({
@@ -28,4 +37,4 @@ const groups = defineCollection({
 	},
 })
 
-export const collections = { posts, groups }
+export const collections = { posts, groups, daily }

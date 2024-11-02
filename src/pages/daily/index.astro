@@ -1,0 +1,44 @@
+---
+import { getCollection } from "astro:content"
+
+const diary = await getCollection("daily")
+const currentDate = new Date()
+
+// Сортировка записей по дате
+const sortedDiary = diary.sort((a, b) => new Date(a.data.date) - new Date(b.data.date))
+
+// Получаем текущий день, месяц и год
+const today = currentDate.getDate()
+const currentMonth = currentDate.getMonth()
+const currentYear = currentDate.getFullYear()
+
+// Ищем запись за текущий день
+const currentDayEntry = sortedDiary.find(entry => {
+	const entryDate = new Date(entry.data.date)
+	return (
+		entryDate.getDate() === today &&
+		entryDate.getMonth() === currentMonth &&
+		entryDate.getFullYear() === currentYear
+	)
+})
+
+// Если запись найдена, редиректим на нее
+if (currentDayEntry) {
+	return Astro.redirect(`/daily/${currentDayEntry.slug}`)
+} else {
+	// Если записи за текущий день нет, можно редиректить на первую запись месяца или на страницу с сообщением
+	const firstEntryOfMonth = sortedDiary.find(entry => {
+		const entryDate = new Date(entry.data.date)
+		return (
+			entryDate.getMonth() === currentMonth && entryDate.getFullYear() === currentYear
+		)
+	})
+
+	if (firstEntryOfMonth) {
+		return Astro.redirect(`/daily/${firstEntryOfMonth.slug}`)
+	} else {
+		// Если нет записей вообще, редиректим на страницу с сообщением
+		return Astro.redirect("/404") // Предполагается, что такая страница существует
+	}
+}
+---

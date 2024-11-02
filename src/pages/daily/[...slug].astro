@@ -1,0 +1,97 @@
+---
+import Container from "@/components/Container.astro"
+import JustLayout from "@/layouts/JustLayout.astro"
+import { getCollection } from "astro:content"
+
+export async function getStaticPaths() {
+	const allPosts = await getCollection("daily")
+
+	allPosts.sort((a, b) => new Date(a.data.date) - new Date(b.data.date))
+
+	const postCount = allPosts.length
+	return allPosts.map((post, index) => ({
+		params: { slug: post.slug },
+		props: {
+			post,
+			prevPost: index !== 0 ? allPosts[index - 1] : null,
+			nextPost: index + 1 < postCount ? allPosts[index + 1] : null,
+		},
+	}))
+}
+
+const { post, prevPost, nextPost } = Astro.props
+
+const { Content } = await post.render()
+---
+
+<JustLayout
+	title={`${post.data.title} | АП (АПРО) Ежедневник`}
+	description="Ежедневник АП"
+>
+	<section class="py-[120px]">
+		<Container>
+			<h2
+				class="before:h-full pl-3 before:w-[4px] before:rounded-lg relative before:absolute before:left-0 before:bg-purple-500 mb-6 text-xl"
+			>
+				Ежедневник
+			</h2>
+
+			<nav aria-label="Пагинация" class="py-6">
+				{
+					(nextPost || prevPost) && (
+						<div class="flex flex-wrap gap-y-3 justify-between">
+							{prevPost && (
+								<a
+									class="px-3 py-1.5 ring-1 ring-zinc-800 rounded-lg bg-zinc-900"
+									href={`/daily/${prevPost.slug}`}
+								>
+									{prevPost.data.title.length > 20
+										? `${prevPost.data.title.substring(0, 20)}...`
+										: prevPost.data.title}
+								</a>
+							)}
+							{nextPost && (
+								<a
+									class="px-3 py-1.5 ring-1 ring-zinc-800 rounded-lg bg-zinc-900"
+									href={`/daily/${nextPost.slug}`}
+								>
+									{nextPost.data.title.length > 20
+										? `${nextPost.data.title.substring(0, 20)}...`
+										: nextPost.data.title}{" "}
+								</a>
+							)}
+						</div>
+					)
+				}
+			</nav>
+
+			<main
+				class="py-6 prose-headings:text-balance prose-p:pretty prose max-w-none prose-invert prose-lg prose-sky underline-offset-4 marker:text-green-500 prose-p:text-white"
+			>
+				<h1>{post.data.title}</h1>
+				<Content />
+			</main>
+
+			<div
+				class="prose max-w-none prose-invert p-6 rounded-xl bg-zinc-900 ring-1 ring-zinc-800"
+			>
+				<ul class="mb-0">
+					<li class="marker:text-white">
+						<p class="my-0">
+							Если есть желания, то можете редактировать ежедневник,<b>
+								добавив свои опыт</b
+							>.
+						</p>
+					</li>
+					<li class="marker:text-green-500">
+						<a
+							href={`https://github.com/proxima812/ap-12steps/edit/main/src/content/daily/${post.data.moth}/${post.slug}.md`}
+							class="text-green-500 underline-offset-4"
+							>Редактировать ежедневник на GitHub</a
+						>
+					</li>
+				</ul>
+			</div>
+		</Container>
+	</section>
+</JustLayout>
