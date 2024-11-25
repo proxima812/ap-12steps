@@ -89,6 +89,7 @@ export async function getPost(slug: string): Promise<Post | null> {
       title,
       slug,
       date,
+      body,
       mainImage,
       description,
       _createdAt,
