@@ -11,11 +11,11 @@ import { Icon } from "astro-icon/components"
 	<Container>
 		<div class="flex justify-between items-center">
 			<a href="/" aria-label="На главную"><Logo /></a>
-			<nav id="nav" class="hidden md:flex space-x-4 text-white">
+			<nav id="nav" class="hidden md:flex space-x-5 text-white">
 				{
 					links &&
 						links.map(link => (
-							<a class="flex gap-1 items-center" href={link.href}>
+							<a class="flex gap-2 items-center font-medium" href={link.href}>
 								{link.mdi && <Icon name={link.mdi} />}
 								{link.label}
 							</a>

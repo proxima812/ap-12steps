@@ -1,0 +1,64 @@
+---
+import Container from "@/components/Container.astro"
+import JustLayout from "@/layouts/JustLayout.astro"
+import { formatDate } from "@/utils"
+import { urlFor } from "@/utils/image"
+import { getPost, getPosts } from "@/utils/sanity"
+import type { InferGetStaticParamsType } from "astro"
+import { PortableText } from "astro-portabletext"
+
+export async function getStaticPaths() {
+	const posts = await getPosts()
+	return posts.map(post => ({
+		params: { slug: post.slug.current },
+	}))
+}
+
+type Params = InferGetStaticParamsType<typeof getStaticPaths>
+const { slug } = Astro.params as Params
+const post = await getPost(slug)
+---
+
+<JustLayout title={post.title} description={post.description}>
+	<section class="py-[120px]">
+		<Container>
+			<a href="/posts" class="bg-zinc-800 rounded-lg px-3 py-1.5">Назад</a>
+			<div class="py-6 flex flex-col gap-3">
+				<img src={urlFor(post.mainImage).url()} class="max-w-xl rounded-xl" alt="" />
+				<h1
+					class="before:h-full pl-5 my-6 before:w-[4px] before:rounded-lg relative before:absolute before:left-0 before:bg-sky-500 lg:text-6xl text-4xl font-black tracking-tighter"
+				>
+					{post.title}
+				</h1>
+
+				{
+					post.author && (
+						<div class="flex items-center gap-2">
+							{post.author.picture && (
+								<img
+									src={urlFor(post.author.picture).width(120).height(120).url()}
+									class="rounded-full object-cover"
+									width="35"
+									height="35"
+									decoding="async"
+									loading="eager"
+									alt={post.author.name}
+								/>
+							)}
+							<span class="font-medium">{post.author.name}</span>
+						</div>
+					)
+				}
+				<div class="justify-between flex items-center">
+					<p class="text-zinc-400">{post.description}</p>
+					<span>
+						{formatDate(post.date)}
+					</span>
+				</div>
+			</div>
+			<main class="prose-zinc prose max-w-none prose-lg prose-invert">
+				<PortableText value={post.body} />
+			</main>
+		</Container>
+	</section>
+</JustLayout>

@@ -8,6 +8,19 @@ import { VitePWA } from "vite-plugin-pwa"
 import { manifest } from "./src/utils/libs/manifest"
 import { config } from "/src/settings"
 
+import sanity from "@sanity/astro"
+import { loadEnv } from "vite"
+const {
+	PUBLIC_SANITY_STUDIO_PROJECT_ID,
+	PUBLIC_SANITY_STUDIO_DATASET,
+	PUBLIC_SANITY_PROJECT_ID,
+	PUBLIC_SANITY_DATASET,
+} = loadEnv(import.meta.env.MODE, process.cwd(), "")
+
+// Different environments use different variables
+const projectId = PUBLIC_SANITY_STUDIO_PROJECT_ID || PUBLIC_SANITY_PROJECT_ID
+const dataset = PUBLIC_SANITY_STUDIO_DATASET || PUBLIC_SANITY_DATASET
+
 import cloudflare from "@astrojs/cloudflare"
 
 export default defineConfig({
@@ -23,10 +36,17 @@ export default defineConfig({
 
 	integrations: [
 		sitemap({
-			filter: page => page !== `${config.site.base.url}/admin-page`,
+			filter: page => page !== `${config.site.base.url}/studio`,
 		}),
 		tailwind({
 			applyBaseStyles: false,
+		}),
+		sanity({
+			projectId,
+			dataset,
+			studioBasePath: "/studio",
+			useCdn: false,
+			apiVersion: "2023-03-20", 
 		}),
 		compress(),
 		react(),

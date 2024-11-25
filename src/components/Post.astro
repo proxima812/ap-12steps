@@ -1,16 +1,39 @@
 ---
-const { data, slug } = Astro.props
+import { formatDate } from "@/utils"
+import { urlFor } from "@/utils/image"
+const { post, data, slug, isSanity } = Astro.props
 ---
 
-<a href={`/posts/${slug}`}>
+<a href={isSanity ? `/arhive/${post.slug.current}` : `/posts/${slug}`}>
 	<article class="p-6 rounded-xl bg-zinc-900 ring-1 ring-zinc-800">
-		<div class="flex flex-col gap-3">
-			<h2
-				class=" font-black text-xl tracking-tighter"
-			>
-				{data.title}
+		<div class="flex flex-col gap-4">
+			<h2 class="font-semibold text-xl">
+				{isSanity ? post.title : data.title}
 			</h2>
-			<p class="text-zinc-400">{data.description}</p>
+			<p class="text-zinc-400">{isSanity ? post.description : data.description}</p>
+			{
+				isSanity && (
+					<div class="flex items-center justify-between">
+						{post.author && (
+							<div class="flex gap-3 items-center">
+								{post.author.picture && (
+									<img
+										class="rounded-full object-cover"
+										src={urlFor(post.author.picture).width(120).height(120).url()}
+										loading="eager"
+										width="35"
+										height="35"
+										decoding="async"
+										alt={post.author.name}
+									/>
+								)}
+								<span class="font-medium text-sm">{post.author.name}</span>
+							</div>
+						)}
+						<span class="text-sm text-zinc-400">{formatDate(post.date)}</span>
+					</div>
+				)
+			}
 		</div>
 	</article>
 </a>

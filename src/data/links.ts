@@ -1,7 +1,7 @@
 export const links = [
 	{
 		label: "Группы",
-		href: "/#groups",
+		href: "/groups",
 		mdi: "mdi:home-group-plus",
 	},
 	{
@@ -9,13 +9,13 @@ export const links = [
 		href: "/#contacts",
 		mdi: "mdi:contactless-payment",
 	},
+	// {
+	// 	label: "Ежедневник",
+	// 	href: "/daily",
+	// 	mdi: "mdi:account-box-edit-outline",
+	// },
 	{
-		label: "Ежедневник",
-		href: "/daily",
-		mdi: "mdi:account-box-edit-outline",
-	},
-	{
-		label: "Посты",
+		label: "Архивы & Посты",
 		href: "/posts",
 		mdi: "mdi:book-education",
 	},
@@ -24,9 +24,9 @@ export const links = [
 		href: "/#create-group",
 		mdi: "mdi:creation-outline",
 	},
-	{
-		label: "Вопросы&Ответы",
-		href: "/faq",
-		mdi: "mdi:format-quote-close",
-	},
+	// {
+	// 	label: "Вопросы&Ответы",
+	// 	href: "/faq",
+	// 	mdi: "mdi:format-quote-close",
+	// },
 ]

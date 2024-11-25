@@ -4,9 +4,9 @@ export const config = {
 			url: "https://ap-12steps.pages.dev",
 		},
 		OG: {
-			site_name: "АП - анонимные прокрастинаторы",
+			site_name: "АПРО - анонимные прокрастинаторы",
 			author: "samgold",
-			title: "АП - Анонимные Прокрастинаторы",
+			title: "АПРО - Анонимные Прокрастинаторы",
 			description:
 				"У тебя проблема с прокрастинацией - возможно, мы поможем! Рады всем из всех стран мира.",
 			locale: "ru",
@@ -20,7 +20,7 @@ export const config = {
 		//...
 	},
 	manifest: {
-		short_name: "АП - сайт",
+		short_name: "АПРО - сайт",
 		theme_color: "#888",
 		background_color: "#888",
 		// fullscreen / standalone / minimal-ui / browser
