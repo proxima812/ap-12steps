@@ -23,7 +23,7 @@ export const prerender = false
 			>
 				Посты и статьи от <b>сообщества.</b>
 			</h3>
-			<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+			<div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
 				{posts && posts.map(post => <Post data={post.data} slug={post.slug} />)}
 			</div>
 			<h3
@@ -31,7 +31,7 @@ export const prerender = false
 			>
 				Посты от <b>авторов</b>: опыт, обзоры и прочее.
 			</h3>
-			<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+			<div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
 				{
 					postsSanity.length > 0 ? (
 						postsSanity.map(group => <Post isSanity post={group} />)

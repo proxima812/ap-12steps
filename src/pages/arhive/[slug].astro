@@ -24,7 +24,11 @@ const post = await getPost(slug)
 		<Container>
 			<a href="/posts" class="bg-zinc-800 rounded-lg px-3 py-1.5">Назад</a>
 			<div class="py-6 flex flex-col gap-3">
-				<img src={urlFor(post.mainImage).url()} class="max-w-xl rounded-xl" alt="" />
+				{
+					post.mainImage && (
+						<img src={urlFor(post.mainImage).url()} class="max-w-xl rounded-xl" alt="" />
+					)
+				}
 				<h1
 					class="before:h-full pl-5 my-6 before:w-[4px] before:rounded-lg relative before:absolute before:left-0 before:bg-sky-500 lg:text-6xl text-4xl font-black tracking-tighter"
 				>
