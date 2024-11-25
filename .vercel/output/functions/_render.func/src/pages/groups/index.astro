@@ -1,0 +1,30 @@
+---
+import Container from "@/components/Container.astro"
+import GroupCard from "@/components/GroupCard.astro"
+import H2PresentSection from "@/components/ui/H2PresentSection.astro"
+import JustLayout from "@/layouts/JustLayout.astro"
+import { getGroups } from "@/utils/sanity"
+
+const groups = await getGroups()
+export const prerender = false
+---
+
+<JustLayout>
+	<Container>
+		<section id="groups" class="py-[120px]">
+			<H2PresentSection icon="mdi:telegram">
+				<Fragment slot="name">Онлайн группы</Fragment>
+				<Fragment slot="p">АП ведут встречи по проблеме, лени и прокрастинации.</Fragment>
+			</H2PresentSection>
+			<div class="grid grid-cols-1 md:grid-cols-2 items-start lg:grid-cols-3 gap-6">
+				{
+					groups.length > 0 ? (
+						groups.map(group => <GroupCard post={group} />)
+					) : (
+						<span class="text-white">Нет пока что групп...</span>
+					)
+				}
+			</div>
+		</section>
+	</Container>
+</JustLayout>
