@@ -84,6 +84,5 @@ export default defineConfig({
 	// },
 
 	output: "hybrid",
-
 	adapter: vercel(),
 })
