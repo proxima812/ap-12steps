@@ -34,7 +34,7 @@ export const prerender = false
 			<div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
 				{
 					postsSanity.length > 0 ? (
-						postsSanity.map(group => <Post isSanity post={group} />)
+						postsSanity.map(post => <Post isSanity post={post} />)
 					) : (
 						<span class="text-white italic">Нет пока что постов...</span>
 					)

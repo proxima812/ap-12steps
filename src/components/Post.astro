@@ -5,6 +5,17 @@ const { post, data, slug, isSanity } = Astro.props
 ---
 
 <a href={isSanity ? `/arhive/${post.slug.current}` : `/posts/${slug}`}>
+	{
+		post?.mainImage && (
+			<img
+				src={urlFor(post.mainImage).width(1200).height(630).url()}
+				alt={post.title}
+				class="rounded-xl object-cover"
+				loading="lazy"
+				decoding="async"
+			/>
+		)
+	}
 	<article class="p-6 rounded-xl bg-zinc-900 ring-1 ring-zinc-800">
 		<div class="flex flex-col gap-4">
 			<h2 class="font-semibold text-xl">

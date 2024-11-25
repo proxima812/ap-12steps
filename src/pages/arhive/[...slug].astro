@@ -19,16 +19,11 @@ const { slug } = Astro.params as Params
 const post = await getPost(slug)
 ---
 
-<JustLayout title={post.title} description={post.description}>
+<JustLayout title={post.title} ogImage={urlFor(post.mainImage)} description={post.description}>
 	<section class="py-[120px]">
 		<Container>
 			<a href="/posts" class="bg-zinc-800 rounded-lg px-3 py-1.5">Назад</a>
 			<div class="py-6 flex flex-col gap-3">
-				{
-					post.mainImage && (
-						<img src={urlFor(post.mainImage).url()} class="max-w-xl rounded-xl" alt="" />
-					)
-				}
 				<h1
 					class="before:h-full pl-5 my-6 before:w-[4px] before:rounded-lg relative before:absolute before:left-0 before:bg-sky-500 lg:text-6xl text-4xl font-black tracking-tighter"
 				>
@@ -53,13 +48,14 @@ const post = await getPost(slug)
 						</div>
 					)
 				}
-				<div class="justify-between flex items-center">
+				<div class="justify-between flex flex-wrap items-center">
 					<p class="text-zinc-400">{post.description}</p>
 					<span>
 						{formatDate(post.date)}
 					</span>
 				</div>
 			</div>
+			<hr class="my-6" />
 			<main class="prose-zinc prose max-w-none prose-lg prose-invert">
 				<PortableText value={post.body} />
 			</main>
