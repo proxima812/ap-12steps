@@ -1,7 +1,7 @@
 export const config = {
 	site: {
 		base: {
-			url: "https://ap-12steps.pages.dev",
+			url: "https://papro.vercel.app/",
 		},
 		OG: {
 			site_name: "АПРО - анонимные прокрастинаторы",
@@ -14,8 +14,8 @@ export const config = {
 		},
 	},
 	verifications: {
-		yandex: "713673c99526fae1",
-		google: "dr7QQtGf_qTU7V6RfX_fflCjghK9CWYGvzTgLEVEn-c",
+		yandex: "",
+		google: "",
 		bing: "",
 		//...
 	},
