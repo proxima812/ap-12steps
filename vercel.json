@@ -1,0 +1,22 @@
+{
+	"version": 2,
+	"builds": [
+		{
+			"src": "package.json",
+			"use": "@vercel/node",
+			"config": {
+				"maxLambdaSize": "50mb"
+			}
+		},
+		{
+			"src": "astro.config.mjs",
+			"use": "@astrojs/vercel"
+		}
+	],
+	"env": {
+		"NODE_ENV": "production"
+	},
+	"engines": {
+		"node": "20.x"
+	}
+}
