@@ -2,6 +2,7 @@
 import CommunitiesList from "@/components/CommunitiesList.astro"
 import Container from "@/components/Container.astro"
 import Freinds from "@/components/Freinds.astro"
+import MainP from "@/components/MainP.astro"
 import Footer from "@/components/partials/Footer.astro"
 import Canvas from "@/components/ui/Canvas.astro"
 import H2PresentSection from "@/components/ui/H2PresentSection.astro"
@@ -24,6 +25,14 @@ import JustLayout from "@/layouts/JustLayout.astro"
 
 	<Container>
 		<main class="flex flex-col gap-20 py-20">
+			<section>
+				<H2PresentSection icon="mdi:lightbulb-group">
+					<Fragment slot="name">О нас</Fragment>
+					<Fragment slot="p">АПРО: кто и что мы.</Fragment>
+				</H2PresentSection>
+				<MainP />
+			</section>
+
 			<section>
 				<H2PresentSection icon="mdi:account-group">
 					<Fragment slot="name">Из разных сообществ</Fragment>
