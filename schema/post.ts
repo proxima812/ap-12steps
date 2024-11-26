@@ -3,18 +3,18 @@ import { defineField, defineType } from "sanity"
 
 export default defineType({
 	name: "post",
-	title: "Post",
+	title: "Публикация",
 	type: "document",
 	fields: [
 		defineField({
 			name: "title",
-			title: "Title",
+			title: "Заголовок",
 			type: "string",
 			validation: Rule => Rule.required(),
 		}),
 		defineField({
 			name: "slug",
-			title: "Slug",
+			title: "Слаг (URL)",
 			type: "slug",
 			validation: Rule => Rule.required(),
 			options: {
@@ -24,13 +24,13 @@ export default defineType({
 		}),
 		defineField({
 			name: "description",
-			title: "description",
+			title: "Описание",
 			type: "text",
 			rows: 4,
 		}),
 		defineField({
 			name: "mainImage",
-			title: "Main image",
+			title: "Главное изображение",
 			type: "image",
 			options: {
 				hotspot: true,
@@ -38,21 +38,25 @@ export default defineType({
 		}),
 		defineField({
 			name: "date",
-			title: "Date",
+			title: "Дата",
 			type: "datetime",
 			initialValue: () => new Date().toISOString(),
 			validation: Rule => Rule.required(),
 		}),
 		defineField({
 			name: "author",
-			title: "Author",
+			title: "Автор",
 			type: "reference",
 			to: [{ type: "author" }],
+			initialValue: currentUser => ({
+				_type: "reference",
+				_ref: currentUser?.id, // Текущий пользователь
+			}),
 			validation: Rule => Rule.required(),
 		}),
 		defineField({
 			name: "body",
-			title: "Body",
+			title: "Содержимое",
 			type: "blockContent",
 		}),
 	],
@@ -65,14 +69,14 @@ export default defineType({
 		},
 		prepare({ title, media, author, date }) {
 			const subtitles = [
-				author && `by ${author}`, // Добавляем имя автора
-				date && `on ${format(parseISO(date), "LLL d, yyyy")}`, // Форматируем дату
+				author && `Автор: ${author}`, // Добавляем имя автора
+				date && `Дата: ${format(parseISO(date), "dd.MM.yyyy")}`, // Форматируем дату
 			].filter(Boolean) // Убираем пустые значения
 
 			return {
 				title,
 				media,
-				subtitle: subtitles.join(" "), // Собираем подзаголовок
+				subtitle: subtitles.join(" | "), // Собираем подзаголовок
 			}
 		},
 	},

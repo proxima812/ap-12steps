@@ -19,7 +19,11 @@ const { slug } = Astro.params as Params
 const post = await getPost(slug)
 ---
 
-<JustLayout title={post.title} ogImage={urlFor(post.mainImage)} description={post.description}>
+<JustLayout
+	title={post.title}
+	ogImage={post.mainImage ? urlFor(post.mainImage) : null}
+	description={post.description}
+>
 	<section class="py-[120px]">
 		<Container>
 			<a href="/posts" class="bg-zinc-800 rounded-lg px-3 py-1.5">Назад</a>
