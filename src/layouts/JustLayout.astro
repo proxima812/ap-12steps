@@ -1,12 +1,12 @@
 ---
 import Analytics from "@/components/Analytics.astro"
-import Nav from '@/components/Nav.astro'
+import Nav from "@/components/Nav.astro"
+import Footer from "@/components/partials/Footer.astro"
 import SEOHead from "@/components/SEOHead.astro"
 
 import "@/styles/tailwind.css"
 
-const { datePublished, dateModified, title, description, type, ogImage } =
-	Astro.props
+const { datePublished, dateModified, title, description, type, ogImage } = Astro.props
 ---
 
 <html lang="ru" class="scroll-smooth h-full">
@@ -20,12 +20,13 @@ const { datePublished, dateModified, title, description, type, ogImage } =
 			dateModified={dateModified}
 		/>
 		<Analytics />
-    <slot name="schema_faq" />
+		<slot name="schema_faq" />
 	</head>
 	<body
 		class="relative scroll-m-4 w-full min-h-screen h-full bg-zinc-950 text-white font-sans"
 	>
 		<Nav />
 		<slot />
+		
 	</body>
 </html>

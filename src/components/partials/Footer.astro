@@ -2,9 +2,30 @@
 const { container_max_w } = Astro.props
 ---
 
-<footer class="py-5 bg-zinc-100">
-  <div class:list={`${container_max_w ?? "max-w-6xl"} container mx-auto px-5`}>
-    <!--  -->
-    footer
-  </div>
+<footer class="py-12">
+	<div class:list={`${container_max_w ?? "max-w-6xl"} container mx-auto px-5`}>
+		<div class="text-center flex justify-center">
+			<p class="flex items-center gap-3 font-bold">
+				<a
+					href="https://astro.build/"
+					class="rounded-xl px-3 py-2 bg-gradient-to-tr from-blue-700 to-purple-700"
+					rel="nofollow">AstroJS</a
+				>
+				<span>+</span>
+				<a
+					href="https://www.sanity.io/"
+					class="rounded-xl px-3 py-2 bg-gradient-to-tr from-red-600 to-[#f36458]"
+					rel="nofollow">Sanity</a
+				>
+				<span>+</span>
+				<a
+					href="https://vercel.com/"
+					class="rounded-xl px-3 py-2 bg-gradient-to-tr from-zinc-800 to-black"
+					rel="nofollow"
+				>
+					Vercel
+				</a>
+			</p>
+		</div>
+	</div>
 </footer>
