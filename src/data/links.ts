@@ -4,11 +4,6 @@ export const links = [
 		href: "/groups",
 		mdi: "mdi:home-group-plus",
 	},
-	{
-		label: "Контакты",
-		href: "/#contacts",
-		mdi: "mdi:contactless-payment",
-	},
 	// {
 	// 	label: "Ежедневник",
 	// 	href: "/daily",
@@ -20,8 +15,13 @@ export const links = [
 		mdi: "mdi:book-education",
 	},
 	{
+		label: "Контакты",
+		href: "/#contacts",
+		mdi: "mdi:contactless-payment",
+	},
+	{
 		label: "Создать группу",
-		href: "/#create-group",
+		href: "/arhive/new-group-apro",
 		mdi: "mdi:creation-outline",
 	},
 	// {
