@@ -17,9 +17,19 @@ export const prerender = false
 				<Fragment slot="p">АП ведут встречи по проблеме, лени и прокрастинации.</Fragment>
 			</H2PresentSection>
 			<div class="grid grid-cols-1 md:grid-cols-2 items-start lg:grid-cols-3 gap-6">
+				<a
+					href="/archive/new-group-apro"
+					class="p-6 rounded-xl bg-green-900/20 ring-1 ring-green-800 relative w-full h-full flex items-center justify-center"
+				>
+					<span class="text-lg font-medium text-green-500">Создать группу.</span>
+				</a>
 				{
 					groups.length > 0 ? (
-						groups.map(group => <GroupCard post={group} />)
+						groups.map(group => (
+							<>
+								<GroupCard post={group} />
+							</>
+						))
 					) : (
 						<span class="text-white">Нет пока что групп...</span>
 					)
