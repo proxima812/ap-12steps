@@ -1,10 +1,15 @@
 ---
 import { formatDate } from "@/utils"
 import { urlFor } from "@/utils/image"
-const { post, data, slug, isSanity } = Astro.props
+import { PortableText } from "astro-portabletext"
+const { post, data, slug, isSanity, isNews } = Astro.props
+
+const url = isSanity ? `/archive/${post.slug.current}` : isNews ? `#` : `/posts/${slug}`
+const title = isSanity || isNews ? post.title : data.title
+const description = isSanity || isNews ? post.description : data.description
 ---
 
-<a href={isSanity ? `/arhive/${post.slug.current}` : `/posts/${slug}`}>
+<a href={url} class={isNews && `pointer-events-none`}>
 	{
 		post?.mainImage && (
 			<img
@@ -18,10 +23,16 @@ const { post, data, slug, isSanity } = Astro.props
 	}
 	<article class="p-6 rounded-xl bg-zinc-900 ring-1 ring-zinc-800">
 		<div class="flex flex-col gap-4">
-			<h2 class="font-semibold text-xl">
-				{isSanity ? post.title : data.title}
-			</h2>
-			<p class="text-zinc-400">{isSanity ? post.description : data.description}</p>
+			<h2 class="font-semibold text-xl">{title}</h2>
+			<p class="text-zinc-400">{description}</p>
+			{
+				isNews && (
+					<div class="prose prose-invert">
+						<PortableText value={post.body} />
+					</div>
+          <span class="text-sm text-zinc-400">{formatDate(post.date)}</span>
+				)
+			}
 			{
 				isSanity && (
 					<div class="flex items-center justify-between">

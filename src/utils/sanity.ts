@@ -40,6 +40,27 @@ export async function getPosts(): Promise<Post[]> {
 	}
 }
 
+export async function getNews(): Promise<Post[]> {
+	const query = groq`
+    *[_type == "news" && defined(slug.current)] | order(_createdAt desc){
+      title,
+      slug,
+      description,
+      date,
+      body,
+      _createdAt,
+    }
+  `
+
+	try {
+		const posts = await sanityClient.fetch<Post[]>(query)
+		return posts
+	} catch (error) {
+		console.error("Error fetching posts:", error)
+		return [] // Возвращаем пустой массив в случае ошибки
+	}
+}
+
 export async function getGroups() {
 	const query = groq`
   *[_type == "group"] | order(day desc, time desc) {

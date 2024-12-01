@@ -15,7 +15,7 @@ import { Icon } from "astro-icon/components"
 				{
 					links &&
 						links.map(link => (
-							<a class="flex gap-2 items-center font-medium" href={link.href}>
+							<a class="flex gap-2 items-center text-[15px] font-medium" href={link.href}>
 								{link.mdi && <Icon name={link.mdi} />}
 								{link.label}
 							</a>

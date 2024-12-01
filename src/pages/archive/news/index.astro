@@ -1,0 +1,23 @@
+---
+import Container from "@/components/Container.astro"
+import Post from "@/components/Post.astro"
+import JustLayout from "@/layouts/JustLayout.astro"
+import { getNews } from "@/utils/sanity"
+
+const news = await getNews()
+export const prerender = false
+---
+
+<JustLayout
+	title={`АПРО: Новости`}
+	description="Объявления и события в АПРО"
+>
+	<section class="my-[120px]">
+		<Container>
+
+			<div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+				{news && news.map(post => <Post isNews post={post} />)}
+			</div>
+		</Container>
+	</section>
+</JustLayout>

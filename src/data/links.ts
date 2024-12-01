@@ -20,8 +20,14 @@ export const links = [
 		mdi: "mdi:contactless-payment",
 	},
 	{
+		label: "Новости",
+		href: "/archive/news",
+		mdi: "mdi:newspaper-variant",
+	},
+
+	{
 		label: "Создать группу",
-		href: "/arhive/new-group-apro",
+		href: "/archive/new-group-apro",
 		mdi: "mdi:creation-outline",
 	},
 	// {
