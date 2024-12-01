@@ -9,12 +9,17 @@ const groups = await getGroups()
 export const prerender = false
 ---
 
-<JustLayout>
+<JustLayout
+	title="Онлайн группы АПРО"
+	desciption="АПРО ведут встречи по проблеме, лени и прокрастинации и прочего."
+>
 	<Container>
 		<section id="groups" class="py-[120px]">
 			<H2PresentSection icon="mdi:telegram">
 				<Fragment slot="name">Онлайн группы</Fragment>
-				<Fragment slot="p">АП ведут встречи по проблеме, лени и прокрастинации.</Fragment>
+				<Fragment slot="p"
+					>АПРО ведут встречи по проблеме, лени и прокрастинации.</Fragment
+				>
 			</H2PresentSection>
 			<div class="grid grid-cols-1 md:grid-cols-2 items-start lg:grid-cols-3 gap-6">
 				<a
