@@ -27,7 +27,7 @@ const description = isSanity || isNews ? post.description : data.description
 			<p class="text-zinc-400">{description}</p>
 			{
 				isNews && (
-					<div class="prose prose-invert">
+					<div class="prose prose-blue prose-invert">
 						<PortableText value={post.body} />
 					</div>
           <span class="text-sm text-zinc-400">{formatDate(post.date)}</span>
