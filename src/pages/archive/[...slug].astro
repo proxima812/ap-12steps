@@ -17,6 +17,8 @@ export async function getStaticPaths() {
 type Params = InferGetStaticParamsType<typeof getStaticPaths>
 const { slug } = Astro.params as Params
 const post = await getPost(slug)
+
+export const prerender = false
 ---
 
 <JustLayout

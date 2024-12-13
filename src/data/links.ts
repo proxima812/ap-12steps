@@ -4,32 +4,32 @@ export const links = [
 		href: "/groups",
 		mdi: "mdi:home-group-plus",
 	},
-	// {
-	// 	label: "Ежедневник",
-	// 	href: "/daily",
-	// 	mdi: "mdi:account-box-edit-outline",
-	// },
+	{
+		label: "Об АПРО",
+		href: "/about",
+		mdi: "mdi:message-bookmark-outline",
+	},
 	{
 		label: "Архивы & Посты",
 		href: "/posts",
 		mdi: "mdi:book-education",
 	},
 	{
-		label: "Контакты",
-		href: "/#contacts",
-		mdi: "mdi:contactless-payment",
-	},
-	{
 		label: "Новости",
 		href: "/archive/news",
 		mdi: "mdi:newspaper-variant",
 	},
-
 	{
 		label: "Создать группу",
-		href: "/archive/new-group-apro",
+		href: "/archive/fast-create-group-apro",
 		mdi: "mdi:creation-outline",
 	},
+	{
+		label: "Контакты",
+		href: "/#contacts",
+		mdi: "mdi:contactless-payment",
+	},
+
 	// {
 	// 	label: "Вопросы&Ответы",
 	// 	href: "/faq",
