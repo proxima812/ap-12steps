@@ -17,7 +17,7 @@ const { Content } = await post.render()
 
 <JustLayout {...post.data}>
 	<div
-		class="absolute w-full -z-[1] top-0 h-[50%] left-0 bg-gradient-to-b from-purple-900/40 to-black"
+		class="absolute w-full -z-[1] top-0 h-[50%] left-0 bg-gradient-to-b from-purple-900/40 to-stone-950"
 	>
 	</div>
 	<section class="py-[120px]">
@@ -31,7 +31,7 @@ const { Content } = await post.render()
 				</h1>
 				<p class="text-zinc-400">{post.data.description}</p>
 			</div>
-			<main class="prose-zinc prose max-w-none prose-lg prose-invert">
+			<main class="mt-12 prose-zinc prose max-w-none prose-lg lg:prose-xl prose-invert">
 				<Content />
 			</main>
 		</Container>

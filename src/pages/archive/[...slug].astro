@@ -14,7 +14,6 @@ export async function getStaticPaths() {
 	}))
 }
 
-
 type Params = InferGetStaticParamsType<typeof getStaticPaths>
 const { slug } = Astro.params as Params
 const post = await getPost(slug)
@@ -28,7 +27,7 @@ export const prerender = false
 	description={post.description}
 >
 	<div
-		class="absolute w-full -z-[1] top-0 h-[50%] left-0 bg-gradient-to-b from-lime-900/40 to-black"
+		class="absolute w-full -z-[1] top-0 h-[50%] left-0 bg-gradient-to-b from-lime-900/40 to-stone-950"
 	>
 	</div>
 	<section class="py-[120px]">
@@ -66,7 +65,7 @@ export const prerender = false
 					</span>
 				</div>
 			</div>
-			<main class="mt-12 prose-zinc prose max-w-none prose-lg prose-invert">
+			<main class="mt-12 prose-zinc prose max-w-none prose-lg lg:prose-xl prose-invert">
 				<PortableText value={post.body} />
 			</main>
 		</Container>
